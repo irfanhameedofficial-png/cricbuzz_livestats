@@ -1,0 +1,511 @@
+{
+    "typeMatches": [
+        {
+            "matchType": "International",
+            "seriesMatches": [
+                {
+                    "seriesAdWrapper": {
+                        "seriesId": 10267,
+                        "seriesName": "Sri Lanka tour of Zimbabwe, 2025",
+                        "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 122940,
+                                    "seriesId": 10267,
+                                    "seriesName": "Sri Lanka tour of Zimbabwe, 2025",
+                                    "matchDesc": "1st ODI",
+                                    "matchFormat": "ODI",
+                                    "startDate": "1756452600000",
+                                    "endDate": "1756481400000",
+                                    "state": "In Progress",
+                                    "status": "Zimbabwe need 133 runs",
+                                    "team1": {
+                                        "teamId": 5,
+                                        "teamName": "Sri Lanka",
+                                        "teamSName": "SL",
+                                        "imageId": 172119
+                                    },
+                                    "team2": {
+                                        "teamId": 12,
+                                        "teamName": "Zimbabwe",
+                                        "teamSName": "ZIM",
+                                        "imageId": 172127
+                                    },
+                                    "venueInfo": {
+                                        "id": 69,
+                                        "ground": "Harare Sports Club",
+                                        "city": "Harare",
+                                        "timezone": "+02:00",
+                                        "latitude": "-17.814114",
+                                        "longitude": "31.050962"
+                                    },
+                                    "currBatTeamId": 12,
+                                    "seriesStartDt": "1756339200000",
+                                    "seriesEndDt": "1757289600000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "In Progress"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 298,
+                                            "wickets": 6,
+                                            "overs": 49.6
+                                        }
+                                    },
+                                    "team2Score": {
+                                        "inngs1": {
+                                            "inningsId": 2,
+                                            "runs": 166,
+                                            "wickets": 5,
+                                            "overs": 30.6
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "matchType": "League",
+            "seriesMatches": [
+                {
+                    "seriesAdWrapper": {
+                        "seriesId": 10581,
+                        "seriesName": "Delhi Premier League 2025",
+                        "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 129964,
+                                    "seriesId": 10581,
+                                    "seriesName": "Delhi Premier League 2025",
+                                    "matchDesc": "Qualifier 1",
+                                    "matchFormat": "T20",
+                                    "startDate": "1756456200000",
+                                    "endDate": "1756468800000",
+                                    "state": "Complete",
+                                    "status": "Central Delhi Kings won by 6 wkts  -  15 overs game - due to rain",
+                                    "team1": {
+                                        "teamId": 2601,
+                                        "teamName": "East Delhi Riders",
+                                        "teamSName": "EDR",
+                                        "imageId": 731745
+                                    },
+                                    "team2": {
+                                        "teamId": 2620,
+                                        "teamName": "Central Delhi Kings",
+                                        "teamSName": "CDK",
+                                        "imageId": 731747
+                                    },
+                                    "venueInfo": {
+                                        "id": 51,
+                                        "ground": "Arun Jaitley Stadium",
+                                        "city": "Delhi",
+                                        "timezone": "+05:30",
+                                        "latitude": "28.637891",
+                                        "longitude": "77.243073"
+                                    },
+                                    "currBatTeamId": 2620,
+                                    "seriesStartDt": "1754006400000",
+                                    "seriesEndDt": "1756684800000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "Complete"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 90,
+                                            "wickets": 10,
+                                            "overs": 14.5
+                                        }
+                                    },
+                                    "team2Score": {
+                                        "inngs1": {
+                                            "inningsId": 2,
+                                            "runs": 92,
+                                            "wickets": 4,
+                                            "overs": 11.3
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "seriesAdWrapper": {
+                        "seriesId": 10620,
+                        "seriesName": "Kerala Cricket League 2025",
+                        "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 130679,
+                                    "seriesId": 10620,
+                                    "seriesName": "Kerala Cricket League 2025",
+                                    "matchDesc": "18th Match",
+                                    "matchFormat": "T20",
+                                    "startDate": "1756473300000",
+                                    "endDate": "1756485900000",
+                                    "state": "In Progress",
+                                    "status": "Alleppey Ripples opt to bowl",
+                                    "team1": {
+                                        "teamId": 2741,
+                                        "teamName": "Calicut Globstars",
+                                        "teamSName": "CGS",
+                                        "imageId": 731732
+                                    },
+                                    "team2": {
+                                        "teamId": 2774,
+                                        "teamName": "Alleppey Ripples",
+                                        "teamSName": "ALPR",
+                                        "imageId": 731735
+                                    },
+                                    "venueInfo": {
+                                        "id": 506,
+                                        "ground": "Greenfield International Stadium",
+                                        "city": "Thiruvananthapuram",
+                                        "timezone": "+05:30",
+                                        "latitude": "8.570806",
+                                        "longitude": "76.884328"
+                                    },
+                                    "currBatTeamId": 2741,
+                                    "seriesStartDt": "1755648000000",
+                                    "seriesEndDt": "1757203200000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "In Progress"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 25,
+                                            "wickets": 2,
+                                            "overs": 4.6
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "matchInfo": {
+                                    "matchId": 130674,
+                                    "seriesId": 10620,
+                                    "seriesName": "Kerala Cricket League 2025",
+                                    "matchDesc": "17th Match",
+                                    "matchFormat": "T20",
+                                    "startDate": "1756458000000",
+                                    "endDate": "1756470600000",
+                                    "state": "Complete",
+                                    "status": "Aries Kollam Sailors won by 3 wkts (VJD Method)",
+                                    "team1": {
+                                        "teamId": 2752,
+                                        "teamName": "Thrissur Titans",
+                                        "teamSName": "TST",
+                                        "imageId": 731736
+                                    },
+                                    "team2": {
+                                        "teamId": 2778,
+                                        "teamName": "Aries Kollam Sailors",
+                                        "teamSName": "AKS",
+                                        "imageId": 731731
+                                    },
+                                    "venueInfo": {
+                                        "id": 506,
+                                        "ground": "Greenfield International Stadium",
+                                        "city": "Thiruvananthapuram",
+                                        "timezone": "+05:30",
+                                        "latitude": "8.570806",
+                                        "longitude": "76.884328"
+                                    },
+                                    "currBatTeamId": 2778,
+                                    "seriesStartDt": "1755648000000",
+                                    "seriesEndDt": "1757203200000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "Complete"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 138,
+                                            "wickets": 4,
+                                            "overs": 12.6
+                                        }
+                                    },
+                                    "team2Score": {
+                                        "inngs1": {
+                                            "inningsId": 2,
+                                            "runs": 149,
+                                            "wickets": 7,
+                                            "overs": 12.1
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "seriesAdWrapper": {
+                        "seriesId": 10735,
+                        "seriesName": "Uttar Pradesh Premier League 2025",
+                        "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 132566,
+                                    "seriesId": 10735,
+                                    "seriesName": "Uttar Pradesh Premier League 2025",
+                                    "matchDesc": "25th Match",
+                                    "matchFormat": "T20",
+                                    "startDate": "1756476000000",
+                                    "endDate": "1756488600000",
+                                    "state": "In Progress",
+                                    "status": "Noida Kings opt to bowl",
+                                    "team1": {
+                                        "teamId": 2818,
+                                        "teamName": "Kanpur Superstars",
+                                        "teamSName": "KSS",
+                                        "imageId": 738655
+                                    },
+                                    "team2": {
+                                        "teamId": 2822,
+                                        "teamName": "Noida Kings",
+                                        "teamSName": "NDK",
+                                        "imageId": 738652
+                                    },
+                                    "venueInfo": {
+                                        "id": 485,
+                                        "ground": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium",
+                                        "city": "Lucknow",
+                                        "timezone": "+05:30",
+                                        "latitude": "26.846694",
+                                        "longitude": "80.946166"
+                                    },
+                                    "currBatTeamId": 2818,
+                                    "seriesStartDt": "1755302400000",
+                                    "seriesEndDt": "1757203200000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "In Progress"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 6,
+                                            "wickets": 2,
+                                            "overs": 1.3
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "matchInfo": {
+                                    "matchId": 132555,
+                                    "seriesId": 10735,
+                                    "seriesName": "Uttar Pradesh Premier League 2025",
+                                    "matchDesc": "24th Match",
+                                    "matchFormat": "T20",
+                                    "startDate": "1756459800000",
+                                    "endDate": "1756472400000",
+                                    "state": "Complete",
+                                    "status": "Gaur Gorakhapur Lions won by 7 wkts",
+                                    "team1": {
+                                        "teamId": 2833,
+                                        "teamName": "Meerut Mavericks",
+                                        "teamSName": "MRM",
+                                        "imageId": 738654
+                                    },
+                                    "team2": {
+                                        "teamId": 2811,
+                                        "teamName": "Gaur Gorakhapur Lions",
+                                        "teamSName": "GGL",
+                                        "imageId": 738656
+                                    },
+                                    "venueInfo": {
+                                        "id": 485,
+                                        "ground": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium",
+                                        "city": "Lucknow",
+                                        "timezone": "+05:30",
+                                        "latitude": "26.846694",
+                                        "longitude": "80.946166"
+                                    },
+                                    "currBatTeamId": 2811,
+                                    "seriesStartDt": "1755302400000",
+                                    "seriesEndDt": "1757203200000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "Complete"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 190,
+                                            "wickets": 5,
+                                            "overs": 19.6
+                                        }
+                                    },
+                                    "team2Score": {
+                                        "inngs1": {
+                                            "inningsId": 2,
+                                            "runs": 191,
+                                            "wickets": 3,
+                                            "overs": 19.2
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ad": {
+                        "name": "native_matches",
+                        "layout": "native_large",
+                        "position": 4
+                    }
+                }
+            ]
+        },
+        {
+            "matchType": "Domestic",
+            "seriesMatches": [
+                {
+                    "seriesAdWrapper": {
+                        "seriesId": 10311,
+                        "seriesName": "Duleep Trophy 2025",
+                        "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 123655,
+                                    "seriesId": 10311,
+                                    "seriesName": "Duleep Trophy 2025",
+                                    "matchDesc": "1st Quarter-Final",
+                                    "matchFormat": "TEST",
+                                    "startDate": "1756353600000",
+                                    "endDate": "1756638000000",
+                                    "state": "Stumps",
+                                    "status": "Day 2: Stumps - East Zone trail by 175 runs",
+                                    "team1": {
+                                        "teamId": 233,
+                                        "teamName": "North Zone",
+                                        "teamSName": "NZONE",
+                                        "imageId": 172286
+                                    },
+                                    "team2": {
+                                        "teamId": 235,
+                                        "teamName": "East Zone",
+                                        "teamSName": "EZONE",
+                                        "imageId": 172288
+                                    },
+                                    "venueInfo": {
+                                        "id": 1438087,
+                                        "ground": "BCCI Centre of Excellence Ground",
+                                        "city": "Bengaluru",
+                                        "timezone": "+05:30",
+                                        "latitude": "12.978853",
+                                        "longitude": "77.599533"
+                                    },
+                                    "currBatTeamId": 235,
+                                    "seriesStartDt": "1756252800000",
+                                    "seriesEndDt": "1757980800000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "Stumps"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 405,
+                                            "wickets": 10,
+                                            "overs": 93.2
+                                        }
+                                    },
+                                    "team2Score": {
+                                        "inngs1": {
+                                            "inningsId": 2,
+                                            "runs": 230,
+                                            "wickets": 10,
+                                            "overs": 56.1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "matchInfo": {
+                                    "matchId": 123661,
+                                    "seriesId": 10311,
+                                    "seriesName": "Duleep Trophy 2025",
+                                    "matchDesc": "2nd Quarter-Final",
+                                    "matchFormat": "TEST",
+                                    "startDate": "1756353600000",
+                                    "endDate": "1756638000000",
+                                    "state": "Stumps",
+                                    "status": "Day 2: Stumps - North East Zone trail by 364 runs",
+                                    "team1": {
+                                        "teamId": 237,
+                                        "teamName": "Central Zone",
+                                        "teamSName": "CZONE",
+                                        "imageId": 172290
+                                    },
+                                    "team2": {
+                                        "teamId": 1146,
+                                        "teamName": "North East Zone",
+                                        "teamSName": "NEZONE",
+                                        "imageId": 242496
+                                    },
+                                    "venueInfo": {
+                                        "id": 1438102,
+                                        "ground": "BCCI Centre of Excellence Ground B",
+                                        "city": "Bengaluru",
+                                        "timezone": "+05:30",
+                                        "latitude": "13.174092",
+                                        "longitude": "77.706999"
+                                    },
+                                    "currBatTeamId": 1146,
+                                    "seriesStartDt": "1756252800000",
+                                    "seriesEndDt": "1757980800000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "Stumps"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 532,
+                                            "wickets": 4,
+                                            "overs": 102.0
+                                        }
+                                    },
+                                    "team2Score": {
+                                        "inngs1": {
+                                            "inningsId": 2,
+                                            "runs": 168,
+                                            "wickets": 7,
+                                            "overs": 65.0
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "filters": {
+        "matchType": [
+            "International",
+            "League",
+            "Domestic",
+            "Women"
+        ]
+    },
+    "appIndex": {
+        "seoTitle": "Live Cricket Score - Scorecard and Match Results",
+        "webURL": "www.cricbuzz.com/live-cricket-scores/"
+    },
+    "responseLastUpdated": "1756476904"
+}
