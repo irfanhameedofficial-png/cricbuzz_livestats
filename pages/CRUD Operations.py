@@ -2,12 +2,11 @@ from utils.db_connection import cursor, conn
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(page_title="CricBuzz App", page_icon="🌐", layout="wide")
-st.title("Full CRUD operations for data management")
-st.header("Perform Create, Read, Update, Delete operations here.")
-st.text("You can add new records, view existing records, update them, or delete them as needed.")  
+st.set_page_config(page_title="CricBuzz App", page_icon="🏏", layout="wide")
+st.title("📖Full CRUD operations for data management")
+st.header("Add new records, view existing records, update them, or delete them as needed.")  
 
-option = st.selectbox("Select SQL Operation to perform", ["Create (Add Player)", "Read (View Player)", "Update (Edit Player)", "Delete (Remove Player)"])
+option = st.selectbox("Select SQL Operation to perform", ["➕Create (Add Player)", "🔍Read (View Player)", "✏️Update (Edit Player)", "🗑️Delete (Remove Player)"])
 
 if option == "Create (Add Player)":
     st.subheader("Add a New Player")
