@@ -8,7 +8,7 @@ st.header("Add new records, view existing records, update them, or delete them a
 
 option = st.selectbox("Select SQL Operation to perform", ["➕Create (Add Player)", "🔍Read (View Player)", "✏️Update (Edit Player)", "🗑️Delete (Remove Player)"])
 
-if option == "Create (Add Player)":
+if option == "➕Create (Add Player)":
     st.subheader("Add a New Player")
     with st.form("add_player_form"):
         id = st.number_input("Player ID", min_value=1, step=1)
@@ -36,7 +36,7 @@ if option == "Create (Add Player)":
     #         st.error("Please fill in all required fields.")
     
 
-elif option == "Read (View Player)":
+elif option == "🔍Read (View Player)":
     st.subheader("View Player")
     with st.form("search_player_form"):
         id = st.text_input("Player Name")
@@ -49,7 +49,7 @@ elif option == "Read (View Player)":
     # else:
     #     st.info("No players found in the database.")
 
-elif option == "Update (Edit Player)":
+elif option == "✏️Update (Edit Player)":
     st.subheader("Edit Player Details")
     with st.form("edit_player_form"):
         id = st.number_input("Player ID to Edit", min_value=1, step=1)
@@ -80,7 +80,7 @@ elif option == "Update (Edit Player)":
     #     else:
     #         st.error("Please fill in all required fields.")
 
-elif option == "Delete (Remove Player)":
+elif option == "🗑️Delete (Remove Player)":
     st.subheader("Remove Player")
     with st.form("delete_player_form"):
         id = st.number_input("Player ID to Delete", min_value=1, step=1)
