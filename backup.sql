@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.43, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.37, for Win64 (x86_64)
 --
--- Host: localhost    Database: irfan
+-- Host: localhost    Database: cricbuzz_livestats
 -- ------------------------------------------------------
--- Server version	8.0.43
+-- Server version	8.0.37
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,34 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `crud_player_info`
+--
+
+DROP TABLE IF EXISTS `crud_player_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `crud_player_info` (
+  `player_id` int NOT NULL,
+  `player_name` text,
+  `player_country` text,
+  `player_role` text,
+  `matches_played` int DEFAULT NULL,
+  `runs_scored` int DEFAULT NULL,
+  `wickets_taken` int DEFAULT NULL,
+  PRIMARY KEY (`player_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `crud_player_info`
+--
+
+LOCK TABLES `crud_player_info` WRITE;
+/*!40000 ALTER TABLE `crud_player_info` DISABLE KEYS */;
+/*!40000 ALTER TABLE `crud_player_info` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `hundreds`
@@ -155,4 +183,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-08 19:35:48
+-- Dump completed on 2025-09-08 20:02:49
