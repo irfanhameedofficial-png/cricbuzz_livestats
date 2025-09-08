@@ -1,4 +1,6 @@
 import streamlit as st
+from utils.db_connection import cursor, conn
+import pandas as pd
 st.set_page_config(page_title="CricBuzz App", page_icon="🏏", layout="wide")
 st.title("🗄️SQL-Driven Analytics")
 
@@ -35,13 +37,19 @@ option = st.selectbox(
 
 if option == "Q1: Indian players - full details":
     st.subheader("Indian players - full details")
-    st.write("This query retrieves all details of players from India.")
+    st.write("This query retrieves all details of cuurent players from India.")
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        SELECT name,role,battingStyle,bowlingStyle FROM indian_players;
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("SELECT name,role,battingStyle,bowlingStyle FROM indian_players")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
+
     
 
 elif option == "Q2: Recent matches (last 30 days)":
@@ -50,9 +58,15 @@ elif option == "Q2: Recent matches (last 30 days)":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        select * from recent_matches order by match_date desc;
+
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("select * from recent_matches order by match_date desc")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q3: Top 10 ODI run scorers":
     st.subheader("Top 10 ODI run scorers")
@@ -60,9 +74,15 @@ elif option == "Q3: Top 10 ODI run scorers":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        SELECT r.id, r.name, r.matches, r.innings, r.runs, r.average, h.odi_hundreds FROM runs_odi r left join hundreds h on r.id=h.id limit 10;
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("SELECT r.id, r.name, r.matches, r.innings, r.runs, r.average, h.odi_hundreds FROM runs_odi r left join hundreds h on r.id=h.id limit 10")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
+
 
 elif option == "Q4: Venues with 50,000+ capacity":
     st.subheader("Venues with 50,000+ capacity")
@@ -70,9 +90,14 @@ elif option == "Q4: Venues with 50,000+ capacity":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        select * from venue where capacity>50000;
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("select * from venue where capacity>50000")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q5: Team wins count":
     st.subheader("Team wins count")
@@ -90,9 +115,14 @@ elif option == "Q6: Player count by role":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        select role,count(role) from indian_players group by role;
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("select role,count(role) from indian_players group by role")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q7: Highest score by format":
     st.subheader("Highest score by format")
