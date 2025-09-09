@@ -52,7 +52,7 @@ elif option == "🔍Read (View Player)":
         players = cursor.fetchall()
         if players:
             df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
-            st.dataframe(df)
+            st.dataframe(df,hide_index=True)
         else:
             st.warning(f"Player: {player_name} not found in the database.")
 
@@ -65,7 +65,7 @@ elif option == "🔍Read (View Player)":
         players = cursor.fetchall()
         if players:
             df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
-            st.dataframe(df)
+            st.dataframe(df, hide_index=True)
         else:
             st.warning(f"No Players found in the database.")
 

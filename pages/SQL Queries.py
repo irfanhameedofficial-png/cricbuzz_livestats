@@ -52,18 +52,18 @@ if option == "Q1: Indian players - full details":
 
     
 
-elif option == "Q2: Recent matches (last 30 days)":
-    st.subheader("Recent matches (last 30 days)")
-    st.write("This query fetches matches played in the last 30 days.")
+elif option == "Q2: Recent matches":
+    st.subheader("Recent matches")
+    st.write("This query fetches the recent matches played.")
     btn = st.button("View Query")
     if btn:
         st.code("""
-        select * from recent_matches order by match_date desc;
+        select series_name,match_desc,teams,venue,city,match_date from recent_matches order by match_date desc;
 
         """, language='sql')
     btn2 = st.button("Execute Query")
     if btn2:
-        cursor.execute("select * from recent_matches order by match_date desc")
+        cursor.execute("select series_name,match_desc,teams,venue,city,match_date from recent_matches order by match_date desc")
         players = cursor.fetchall()
         df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
         st.dataframe(df,hide_index=True)
@@ -130,9 +130,14 @@ elif option == "Q7: Highest score by format":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        select * from highest_score;
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("select * from highest_score")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q8: Series started in 2024":
     st.subheader("Series started in 2024")
@@ -140,9 +145,14 @@ elif option == "Q8: Series started in 2024":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        select id, series_name, host_country, match_type, start_date, total_matches from series_2024 order by start_date;
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("select id, series_name, host_country, match_type, start_date, total_matches from series_2024 order by start_date")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q9: All-rounders (1000+ runs, 50+ wickets)":
     st.subheader("All-rounders (1000+ runs, 50+ wickets)")
@@ -150,9 +160,14 @@ elif option == "Q9: All-rounders (1000+ runs, 50+ wickets)":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        select name, runs, wickets, match_format from ind_allrounder_players where runs>1000 and wickets>50;
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("select name, runs, wickets, match_format from ind_allrounder_players where runs>1000 and wickets>50")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q10: Last 20 completed matches":
     st.subheader("Last 20 completed matches")
@@ -160,9 +175,14 @@ elif option == "Q10: Last 20 completed matches":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        select match_desc, teams, winner, victory_margin, victory_type, venue from recent_matches10 order by match_date desc limit 20;
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("select match_desc, teams, winner, victory_margin, victory_type, venue from recent_matches10 order by match_date desc limit 20")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q11: Player format comparison":
     st.subheader("Player format comparison")
