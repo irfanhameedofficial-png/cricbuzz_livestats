@@ -105,9 +105,14 @@ elif option == "Q5: Team wins count":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        select team_name, wins from county_points_table order by wins desc;
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("select team_name, wins from county_points_table order by wins desc")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q6: Player count by role":
     st.subheader("Player count by role")
@@ -160,11 +165,11 @@ elif option == "Q9: All-rounders (1000+ runs, 50+ wickets)":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        select name, runs, wickets, match_format from ind_allrounder_players where runs>1000 and wickets>50;
+        select p.name, a.runs,a.wickets,a.format from players p  join players_details a on p.id = a.player_id where a.runs>=1000 and a.wickets>50;
         """, language='sql')
     btn2 = st.button("Execute Query")
     if btn2:
-        cursor.execute("select name, runs, wickets, match_format from ind_allrounder_players where runs>1000 and wickets>50")
+        cursor.execute("select p.name, a.runs,a.wickets,a.format from players p  join players_details a on p.id = a.player_id where a.runs>=1000 and a.wickets>50")
         players = cursor.fetchall()
         df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
         st.dataframe(df,hide_index=True)
@@ -190,7 +195,7 @@ elif option == "Q11: Player format comparison":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        SELECT p.name, a.format, a.runs, a.runs/a.matches as avg FROM players p join players_details a on p.id=a.player_id WHERE format IN ('Test', 'ODI', 'T20') and runs>50;
         """, language='sql')
     st.table()
 
@@ -202,7 +207,12 @@ elif option == "Q12: Team home vs away wins":
         st.code("""
         SELECT * FROM players WHERE country = 'India';
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("SELECT p.name, a.format, a.runs, a.runs/a.matches as avg FROM players p join players_details a on p.id=a.player_id WHERE format IN ('Test', 'ODI', 'T20') and runs>50")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q13: 100+ run partnerships (consecutive batsmen)":
     st.subheader("100+ run partnerships (consecutive batsmen)")
