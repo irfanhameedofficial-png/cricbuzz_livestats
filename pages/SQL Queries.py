@@ -191,16 +191,9 @@ elif option == "Q11: Player format comparison":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT 
-    p.name,
-    MAX(CASE WHEN a.format = 'Test' THEN a.average END) AS test_avg,
-    MAX(CASE WHEN a.format = 'ODI'  THEN a.average END) AS odi_avg,
-    MAX(CASE WHEN a.format = 'T20'  THEN a.average END) AS t20_avg
-FROM players p
-JOIN players_details a 
-    ON p.id = a.player_id
-WHERE a.format IN ('Test', 'ODI', 'T20')
-GROUP BY p.name;
+        SELECT p.name, MAX(CASE WHEN a.format = 'Test' THEN a.average END) AS test_avg, MAX(CASE WHEN a.format = 'ODI'  THEN a.average END) AS odi_avg, MAX(CASE WHEN a.format = 'T20'  THEN a.average END) AS t20_avg
+        FROM players p JOIN players_details a ON p.id = a.player_id
+        WHERE a.format IN ('Test', 'ODI', 'T20') GROUP BY p.name;
         """, language='sql')
     btn2 = st.button("Execute Query")
     if btn2:
@@ -271,9 +264,20 @@ elif option == "Q14: Bowler venue performance":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT * FROM players WHERE country = 'India';
+        select b.player_name, b.matches_played,v.venue, b.economy as average_economy, b.wickets_taken 
+        from bowl_performance b join venue v on b.venue_name = v.venue
+        order by wickets_taken desc;
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("""
+        select b.player_name, b.matches_played,v.venue, b.economy as average_economy, b.wickets_taken 
+ from bowl_performance b join venue v on b.venue_name = v.venue
+ order by wickets_taken desc
+""")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q15: Player performance in close matches":
     st.subheader("Player performance in close matches")
@@ -282,11 +286,8 @@ elif option == "Q15: Player performance in close matches":
     if btn:
         st.code("""
         select b.player_name, avg(b.runs) as average_runs, count(b.match_id) as close_matches, count(b.match_id) as wins
-from batsmen_scores b join matches m
-on b.match_id = m.match_id
-group by b.player_name 
-having avg(runs) > 0
-order by average_runs desc;
+        from batsmen_scores b join matches m on b.match_id = m.match_id
+        group by b.player_name having avg(runs) > 0 order by average_runs desc;
         """, language='sql')
     btn2 = st.button("Execute Query")
     if btn2:
@@ -316,13 +317,9 @@ elif option == "Q17: Toss win impact analysis":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        select toss_descision, count(*) as total_matches,
-    SUM(CASE WHEN toss = winner THEN 1 ELSE 0 END) as toss_winner_wins,
-    ROUND(
-        100.0 * SUM(CASE WHEN toss = winner THEN 1 ELSE 0 END) / COUNT(*),
-        2
-    ) as win_percentage
-from matches group by toss_descision;
+        select toss_descision, count(*) as total_matches, SUM(CASE WHEN toss = winner THEN 1 ELSE 0 END) as toss_winner_wins,
+        ROUND(100.0 * SUM(CASE WHEN toss = winner THEN 1 ELSE 0 END) / COUNT(*), 2) as win_percentage
+        from matches group by toss_descision;
         """, language='sql')
     btn2 = st.button("Execute Query")
     if btn2:
@@ -370,20 +367,9 @@ elif option == "Q20: Player match count & averages by format":
     btn = st.button("View Query")
     if btn:
         st.code("""
-        SELECT 
-    p.name,
-    MAX(CASE WHEN a.format = 'Test' THEN a.matches END) AS test_matches,
-    MAX(CASE WHEN a.format = 'Test' THEN a.average END) AS test_avg,
-    MAX(CASE WHEN a.format = 'ODI'  THEN a.matches END) AS odi_matches,
-    MAX(CASE WHEN a.format = 'ODI'  THEN a.average END) AS odi_avg,
-    MAX(CASE WHEN a.format = 'T20'  THEN a.matches END) AS t20_matches,
-    MAX(CASE WHEN a.format = 'T20'  THEN a.average END) AS t20_avg
-FROM players p
-JOIN players_details a 
-    ON p.id = a.player_id
-WHERE a.matches > 20
-  AND a.format IN ('Test', 'ODI', 'T20')
-GROUP BY p.name;
+        SELECT p.name, MAX(CASE WHEN a.format = 'Test' THEN a.matches END) AS test_matches, MAX(CASE WHEN a.format = 'Test' THEN a.average END) AS test_avg, MAX(CASE WHEN a.format = 'ODI'  THEN a.matches END) AS odi_matches,
+        MAX(CASE WHEN a.format = 'ODI'  THEN a.average END) AS odi_avg, MAX(CASE WHEN a.format = 'T20'  THEN a.matches END) AS t20_matches, MAX(CASE WHEN a.format = 'T20'  THEN a.average END) AS t20_avg
+        FROM players p JOIN players_details a ON p.id = a.player_id WHERE a.matches > 20 AND a.format IN ('Test', 'ODI', 'T20') GROUP BY p.name;
         """, language='sql')
     btn2 = st.button("Execute Query")
     if btn2:
@@ -413,17 +399,17 @@ elif option == "Q21: Player performance ranking":
     if btn:
         st.code("""
         select p.name, a.format,
-    ((a.runs * 0.1) + (a.average * 0.5) + (a.strike_rate * 0.3)) AS batting_points,
-    ((a.wickets * 2) + ((50 - a.average) * 0.5) + ((6 - a.economy) * 2)) AS bowling_points,
-    (((a.runs * 0.1) + (a.average * 0.5) + (a.strike_rate * 0.3)) +
-     ((a.wickets * 2) + ((50 - a.average) * 0.5) + ((6 - a.economy) * 2))) AS total_points,
-    DENSE_RANK() OVER (
+        ((a.runs * 0.1) + (a.average * 0.5) + (a.strike_rate * 0.3)) AS batting_points,
+        ((a.wickets * 2) + ((50 - a.average) * 0.5) + ((6 - a.economy) * 2)) AS bowling_points,
+        (((a.runs * 0.1) + (a.average * 0.5) + (a.strike_rate * 0.3)) +
+        ((a.wickets * 2) + ((50 - a.average) * 0.5) + ((6 - a.economy) * 2))) AS total_points,
+        DENSE_RANK() OVER (
         PARTITION BY a.format
         order by
             (((a.runs * 0.1) + (a.average * 0.5) + (a.strike_rate * 0.3)) +
              ((a.wickets * 2) + ((50 - a.average) * 0.5) + ((6 - a.economy) * 2))) desc
-    ) as format_based_rank
-from players p join players_details a on p.id = a.player_id where a.format IN ('Test','ODI','T20');
+        ) as format_based_rank
+        from players p join players_details a on p.id = a.player_id where a.format IN ('Test','ODI','T20');
         """, language='sql')
     btn2 = st.button("Execute Query")
     if btn2:
@@ -470,20 +456,15 @@ elif option == "Q24: Best batting partnerships":
     if btn:
         st.code("""
         SELECT 
-    LEAST(batsman1, batsman2) AS player1,
-    GREATEST(batsman1, batsman2) AS player2,
-    COUNT(*) AS total_partnerships,
-    ROUND(AVG(partnership_runs), 2) AS avg_runs,
-    SUM(CASE WHEN partnership_runs > 50 THEN 1 ELSE 0 END) AS fifty_plus_partnerships,
-    MAX(partnership_runs) AS highest_partnership,
-    ROUND(
-        100.0 * SUM(CASE WHEN partnership_runs > 50 THEN 1 ELSE 0 END) / COUNT(*),
-        2
-    ) AS success_rate
-FROM partnerships
-GROUP BY LEAST(batsman1, batsman2), GREATEST(batsman1, batsman2)
-HAVING COUNT(*) >= 5
-ORDER BY success_rate DESC;
+        LEAST(batsman1, batsman2) AS player1,
+        GREATEST(batsman1, batsman2) AS player2,
+        COUNT(*) AS total_partnerships,
+        ROUND(AVG(partnership_runs), 2) AS avg_runs,
+        SUM(CASE WHEN partnership_runs > 50 THEN 1 ELSE 0 END) AS fifty_plus_partnerships,
+        MAX(partnership_runs) AS highest_partnership,
+        ROUND(100.0 * SUM(CASE WHEN partnership_runs > 50 THEN 1 ELSE 0 END) / COUNT(*),2) AS success_rate
+        FROM partnerships GROUP BY LEAST(batsman1, batsman2), GREATEST(batsman1, batsman2) HAVING COUNT(*) >= 5
+        ORDER BY success_rate DESC;
         """, language='sql')
     btn2 = st.button("Execute Query")
     if btn2:
