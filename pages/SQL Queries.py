@@ -309,7 +309,12 @@ elif option == "Q16: Batting trends by year (since 2020)":
         st.code("""
         SELECT * FROM players WHERE country = 'India';
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("SELECT name,role,battingStyle,bowlingStyle FROM indian_players")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q17: Toss win impact analysis":
     st.subheader("Toss win impact analysis")
@@ -359,7 +364,12 @@ elif option == "Q19: Consistent batsmen (since 2022)":
         st.code("""
         SELECT * FROM players WHERE country = 'India';
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("SELECT name,role,battingStyle,bowlingStyle FROM indian_players")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q20: Player match count & averages by format":
     st.subheader("Player match count & averages by format")
@@ -437,7 +447,12 @@ elif option == "Q22: Head-to-head team analysis":
         st.code("""
         SELECT * FROM players WHERE country = 'India';
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("SELECT name,role,battingStyle,bowlingStyle FROM indian_players")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q23: Recent player form & momentum":
     st.subheader("Recent player form & momentum")
@@ -447,7 +462,12 @@ elif option == "Q23: Recent player form & momentum":
         st.code("""
         SELECT * FROM players WHERE country = 'India';
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("SELECT name,role,battingStyle,bowlingStyle FROM indian_players")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
 
 elif option == "Q24: Best batting partnerships":
     st.subheader("Best batting partnerships")
@@ -496,6 +516,12 @@ elif option == "Q25: Player performance time-series":
         st.code("""
         SELECT * FROM players WHERE country = 'India';
         """, language='sql')
-    st.table()
+    btn2 = st.button("Execute Query")
+    if btn2:
+        cursor.execute("SELECT name,role,battingStyle,bowlingStyle FROM indian_players")
+        players = cursor.fetchall()
+        df = pd.DataFrame(players, columns=[desc[0] for desc in cursor.description])
+        st.dataframe(df,hide_index=True)
+
 
 
