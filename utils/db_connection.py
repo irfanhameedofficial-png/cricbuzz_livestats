@@ -11,5 +11,5 @@ conn = mysql.connector.connect(
 
 cursor = conn.cursor()
 
-api_key = "4acde6c146msha2eb7fb3b8c113ep1351fcjsnee5fb67d30b3"
-api_key2 = "4879a17e0cmsh37b379d4ab14552p161d4djsncf56613e28e8"
+api_key = "###"
+api_key2 = "###"
